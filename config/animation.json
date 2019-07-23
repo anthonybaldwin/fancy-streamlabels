@@ -1,0 +1,44 @@
+{
+  "bottom": {
+    "initial": {
+      "speed": "slow",
+      "type": "bounceInUp"
+    },
+    "destroy": {
+      "speed": "slow",
+      "type": "fadeOutDownBig"
+    },
+    "new": {
+      "speed": "fast",
+      "type": "bounceInRight"
+    }
+  },
+  "top": {
+    "initial": {
+      "speed": "slow",
+      "type": "bounceInDown"
+    },
+    "destroy": {
+      "speed": "fast",
+      "type": "fadeOutUpBig"
+    },
+    "new": {
+      "speed": "fast",
+      "type": "bounceInRight"
+    }
+  },
+  "stacked": {
+    "initial": {
+      "speed": "slow",
+      "type": "bounceInUp"
+    },
+    "destroy": {
+      "speed": "fadeOutLeftBig",
+      "type": "hinge"
+    },
+    "new": {
+      "speed": "fast",
+      "type": "bounceInRight"
+    }
+  }
+}
