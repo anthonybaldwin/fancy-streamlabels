@@ -14,7 +14,8 @@ function addElement (responseText, animations, divId) {
   document.body.appendChild(div);
 }
 
-function loadXMLDoc(textFile, callback){
+function loadTextFile(textFile, callback)
+{
 
   let directory = "StreamLabels/";
   let xmlhttp;
@@ -26,8 +27,10 @@ function loadXMLDoc(textFile, callback){
   {
      xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
    }
-   xmlhttp.onreadystatechange = function() {
-      if (xmlhttp.readyState==4 && xmlhttp.status==200) {
+   xmlhttp.onreadystatechange = function()
+   {
+      if (xmlhttp.readyState==4 && xmlhttp.status==200)
+      {
           if ( typeof callback === 'function' )
           {
             callback(xmlhttp.responseText);
@@ -52,8 +55,10 @@ function loadConfig(tickerLocation, callback) //top, bottom, stacked
   {
      xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
    }
-   xmlhttp.onreadystatechange = function() {
-      if (xmlhttp.readyState==4 && xmlhttp.status==200) {
+   xmlhttp.onreadystatechange = function()
+   {
+      if (xmlhttp.readyState==4 && xmlhttp.status==200)
+      {
           if ( typeof callback === 'function' )
           {
             let animations = JSON.parse(xmlhttp.responseText);
@@ -68,24 +73,25 @@ function loadConfig(tickerLocation, callback) //top, bottom, stacked
 
 function ticker(textFile, tickerLocation, divId = 'content')
 {
-  loadConfig(tickerLocation, function(responseJson) {
+  loadConfig(tickerLocation, function(responseJson)
+  {
     let animations = responseJson;
-
-    //start
     let element = document.getElementById(divId);
     let elementExists = document.body.contains(element);
 
     if (!elementExists)
     {
       console.log("element does not exist yet")
-      loadXMLDoc(textFile, function(responseText) {
+      loadTextFile(textFile, function(responseText)
+      {
         addElement(responseText, animations, divId);
       });
     }
     else
     {
       console.log("element exists");
-      loadXMLDoc(textFile, function(responseText) {
+      loadTextFile(textFile, function(responseText)
+      {
         let mainText = document.getElementById(divId);
         mainText.className = '';
 
@@ -105,7 +111,8 @@ function ticker(textFile, tickerLocation, divId = 'content')
         {
           let a = animations;
           mainText.classList.add('animated', a.destroy.type, a.destroy.speed);
-          mainText.addEventListener('animationend', function() {
+          mainText.addEventListener('animationend', function()
+          {
               mainText.classList.remove('animated', a.destroy.type, a.destroy.speed);
               mainText.innerHTML = newPageText;
               mainText.classList.add('animated', a.new.type, a.new.speed);
@@ -113,6 +120,5 @@ function ticker(textFile, tickerLocation, divId = 'content')
         }
       });
     }
-    //end
   });
 }
