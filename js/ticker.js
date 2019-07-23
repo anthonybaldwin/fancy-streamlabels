@@ -14,8 +14,7 @@ function addElement (responseText, animations, divId) {
   document.body.appendChild(div);
 }
 
-function loadTextFile (textFile, callback, directory = "StreamLabels/")
-{
+function loadTextFile (textFile, callback, directory = "StreamLabels/") {
   let xmlhttp;
   if (window.XMLHttpRequest)
   {
@@ -40,8 +39,7 @@ function loadTextFile (textFile, callback, directory = "StreamLabels/")
   xmlhttp.send();
 }
 
-function loadConfig (tickerLocation, callback, file = "/config/animation.json") //top, bottom, stacked
-{
+function loadConfig (tickerLocation, callback, file = "/config/animation.json") {
   let xmlhttp;
   if (window.XMLHttpRequest)
   {
@@ -67,8 +65,7 @@ function loadConfig (tickerLocation, callback, file = "/config/animation.json") 
   xmlhttp.send(null);
 }
 
-function ticker (textFile, tickerLocation, divId = 'content')
-{
+function ticker (textFile, tickerLocation, divId = 'content') {
   loadConfig(tickerLocation, function(responseJson)
   {
     let animations = responseJson;
