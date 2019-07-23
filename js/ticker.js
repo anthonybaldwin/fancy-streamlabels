@@ -14,10 +14,8 @@ function addElement (responseText, animations, divId) {
   document.body.appendChild(div);
 }
 
-function loadTextFile(textFile, callback)
+function loadTextFile(textFile, callback, directory = "StreamLabels/")
 {
-
-  let directory = "StreamLabels/";
   let xmlhttp;
   if (window.XMLHttpRequest)
   {
@@ -42,10 +40,8 @@ function loadTextFile(textFile, callback)
   xmlhttp.send();
 }
 
-function loadConfig(tickerLocation, callback) //top, bottom, stacked
+function loadConfig(tickerLocation, callback, file = "/config/animation.json") //top, bottom, stacked
 {
-  let file = "/config/animation.json";
-
   let xmlhttp;
   if (window.XMLHttpRequest)
   {
@@ -67,7 +63,7 @@ function loadConfig(tickerLocation, callback) //top, bottom, stacked
           }
       }
   }
-  xmlhttp.open("GET", "/config/animation.json", true);
+  xmlhttp.open("GET", file, true);
   xmlhttp.send(null);
 }
 
@@ -81,7 +77,6 @@ function ticker(textFile, tickerLocation, divId = 'content')
 
     if (!elementExists)
     {
-      console.log("element does not exist yet")
       loadTextFile(textFile, function(responseText)
       {
         addElement(responseText, animations, divId);
@@ -89,22 +84,14 @@ function ticker(textFile, tickerLocation, divId = 'content')
     }
     else
     {
-      console.log("element exists");
       loadTextFile(textFile, function(responseText)
       {
         let mainText = document.getElementById(divId);
         mainText.className = '';
 
-        let pageText = mainText.innerHTML.trim();
-        let newPageText = responseText.trim();
-
-        /*
-          holy shit...what a confusing pain in the ass,
-          i.e., random fucking white space
-        */
-        // console.log("pageText length is: " + pageText.length);
-        // console.log("newPageText length is: " + newPageText.length);
+        let pageText = mainText.innerHTML;
         pageText = pageText.trim();
+        let newPageText = responseText;
         newPageText = newPageText.trim();
 
         if (pageText != newPageText)
