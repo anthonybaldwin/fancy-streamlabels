@@ -9,12 +9,12 @@
 <body>
 
 <script>
-  let file = '30day_top_donator';
-  let tickerType = 'bottom'; //bottom, top, stacked
+  let file = 'all_time_top_donator';
+  let tickerType = 'top'; //bottom, top, stacked
 
   window.onload = function () {
     ticker(file, tickerType);
-    setInterval( ticker, 15000, file, tickerType );
+    setInterval( ticker, 5000, file, tickerType );
   }
 </script>
 

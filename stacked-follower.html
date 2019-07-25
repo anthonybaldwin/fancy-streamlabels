@@ -10,11 +10,11 @@
 
 <script>
   let file = 'most_recent_follower';
-  let tickerType = 'stacked'; //bottom, top, stacked
+  let tickerType = 'stackedleft'; //bottom, top, stackedright, stackedleft
 
   window.onload = function () {
     ticker(file, tickerType);
-    setInterval( ticker, 15000, file, tickerType );
+    setInterval( ticker, 5000, file, tickerType );
   }
 </script>
 
