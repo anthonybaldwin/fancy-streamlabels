@@ -5,12 +5,12 @@
       "type": "bounceInUp"
     },
     "destroy": {
-      "speed": "slow",
-      "type": "fadeOutDownBig"
+      "speed": "fast",
+      "type": "lightSpeedOut"
     },
     "new": {
-      "speed": "fast",
-      "type": "bounceInRight"
+      "speed": "slow",
+      "type": "bounceInUp"
     }
   },
   "top": {
@@ -20,24 +20,38 @@
     },
     "destroy": {
       "speed": "fast",
-      "type": "fadeOutUpBig"
+      "type": "lightSpeedOut"
     },
     "new": {
-      "speed": "fast",
-      "type": "bounceInRight"
+      "speed": "slow",
+      "type": "bounceInDown"
     }
   },
-  "stacked": {
+  "stackedright": {
     "initial": {
       "speed": "slow",
-      "type": "bounceInUp"
+      "type": "bounceInLeft"
     },
     "destroy": {
       "speed": "fast",
-      "type": "fadeOutLeftBig"
+      "type": "bounceOutLeft"
     },
     "new": {
+      "speed": "slow",
+      "type": "bounceInLeft"
+    }
+  },
+  "stackedleft": {
+    "initial": {
+      "speed": "slow",
+      "type": "bounceInRight"
+    },
+    "destroy": {
       "speed": "fast",
+      "type": "bounceOutRight"
+    },
+    "new": {
+      "speed": "slow",
       "type": "bounceInRight"
     }
   }
