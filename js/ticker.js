@@ -78,11 +78,10 @@ function ticker (textFile, tickerLocation, divId = tickerLocation+'Content') {
         let mainText = document.getElementById(divId);
         mainText.classList = 'content';
 
-        let pageText = mainText.innerHTML.trim();
-        pageText = pageText.trim();
-        let newPageText = responseText.trim();
-        newPageText = newPageText.trim();
+        let pageText = mainText.innerHTML.trim().replace(/\n|\r/g, "");
+        let newPageText = responseText.trim().replace(/\n|\r/g, "");
 
+        console.log(pageText + " | " + newPageText);
         if (pageText != newPageText)
         {
           console.log("File: '" + textFile + "' has changed")
